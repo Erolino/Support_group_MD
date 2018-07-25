@@ -130,9 +130,9 @@ def explore_topic(topic_number, topn=25):
     for term, frequency in lda.show_topic(topic_number, topn=25):
         print (u'{:20} {:.3f}'.format(term, round(frequency, 3)))
 
-explore_topic(topic_number=24)
+explore_topic(topic_number=9)
 
-''' save topic names into topics '''
+''' need t0 change topic names.. save topic names into topics '''
 
 topic_names = {0:'?',1:'?',2: 'medical',3:'supplements',4: 'looking for',5: 'carbs',6: 'yogurt',7: 'coffee tea food good',8: 'problem, need advice',9:'?', 10: 'protein diet',11:'?',12:'?',13:'admin',14:'?',15:'gut',16: 'feeling',17: 'thomas enema',18: 'buy',19: 'time regiment', 20: '?', 21: 'test/doc', 22: '?', 23: 'treatment',24: 'food, recipe'}
 
@@ -145,3 +145,26 @@ with open(topic_names_filepath_draft_25, 'wb') as f:
 
 with codecs.open(topic_names_filepath_draft_25, 'rb') as f:
     x = pickle.load(f)
+x
+''' VISUALIZATION  '''
+
+#trigram_bow_filepath_draft = os.path.join(draft_path,'trigram_bow_corpus_all_draft.mm')
+#trigram_bow_corpus = MmCorpus(trigram_bow_filepath_draft)
+#trigram_dictionary = Dictionary(trigram_posts)
+
+LDAvis_data_filepath = os.path.join(draft_path,'ldavis_25_prepared')
+
+if 1 == 1:
+
+    LDAvis_prepared = pyLDAvis.gensim.prepare(lda, trigram_bow_corpus,
+                                              trigram_dictionary)
+
+    with open(LDAvis_data_filepath, 'wb') as f:
+        pickle.dump(LDAvis_prepared, f)
+        
+''' WHEN RUNNING THE NEXT LINES IN .ipynb, THERE WILL BE VISUALIZATION'''
+# load the pre-prepared pyLDAvis data from disk
+with codecs.open(LDAvis_data_filepath,'rb') as f:  ## used 'rb' cause of this https://github.com/tkipf/gcn/issues/6
+    LDAvis_prepared = pickle.load(f)
+    
+pyLDAvis.display(LDAvis_prepared)
