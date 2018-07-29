@@ -173,6 +173,9 @@ if 1 == 1:
         pickle.dump(LDAvis_prepared, f)
         
 ''' WHEN RUNNING THE NEXT LINES IN .ipynb, THERE WILL BE VISUALIZATION'''
+'''~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'''
+''' (for visualization refer to "Candida_NLP_pyLDAvis_visualizing-sents") '''
+
 # load the pre-prepared pyLDAvis data from disk
 with codecs.open(joinp(pilot_path,'ldavis_25'),'rb') as f:  ## used 'rb' cause of this https://github.com/tkipf/gcn/issues/6
     LDAvis_prepared = pickle.load(f)
@@ -291,9 +294,10 @@ print(sample_sent)
 
 ## this the topic distribution of the sample_sent:
 y=lda_description(sample_sent)
+y
 topic_num1=int(y[0][0]) # 1st topic
 topic_num2=int(y[1][0]) # 2nd topic
 topic_num3=int(y[2][0]) # 3rd
 ## let's remeber what are these topics:
-explore_topic(topic_number=topic_num3)
+explore_topic(topic_number=topic_num1)
     
