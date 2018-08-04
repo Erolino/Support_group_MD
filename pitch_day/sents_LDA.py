@@ -10,6 +10,7 @@ Created on Wed Jul 18 19:44:04 2018
 
 draft_path='/Users/eran/Galvanize_more_repositories/Support_group_MD/draft'
 pilot_path='/Users/eran/Galvanize_more_repositories/Support_group_MD/pilot'
+pitch_path='/Users/eran/Galvanize_more_repositories/Support_group_MD/pitch_day'
 
 import pandas as pd
 import numpy as np
@@ -64,6 +65,7 @@ if 1 == 1:
     sents_dict.filter_extremes(no_below=10, no_above=0.4)
     sents_dict.compactify()
 
+if 1 == 0: ## no need to save this again
     sents_dict.save(joinp(pilot_path,'sent_dict.dict'))
     
 # load the finished dictionary from disk
@@ -101,7 +103,7 @@ LdaMulticore as inputs, along with the number of topics the model should learn. 
 this demo, we're asking for 50 topics.'''
 
 ## old: lda_model_filepath_draft_25 = os.path.join(draft_path, 'lda_model_all_draft_25')
-joinp(pilot_path, 'lda_model_25')
+joinp(pilot_path, 'lda_model_10')
 
 if 1 == 1:
 
@@ -111,11 +113,11 @@ if 1 == 1:
         # workers => sets the parallelism, and should be
         # set to your number of physical cores minus one
         lda = LdaMulticore(sent_bow_corpus,
-                           num_topics=25,
+                           num_topics=10,
                            id2word=sents_dict,
                            workers=1,dtype=np.float64)
-    
-    lda.save(joinp(pilot_path, 'lda_model_25'))
+if 1 == 0:    
+    lda.save(joinp(pilot_path, 'lda_model_10')) ## no need to save again
     
 # load the finished LDA model from disk
 lda = LdaMulticore.load(joinp(pilot_path, 'lda_model_10'))
@@ -124,7 +126,7 @@ lda = LdaMulticore.load(joinp(pilot_path, 'lda_model_10'))
 mixture of tokens, you can manually inspect which tokens have been grouped together into 
 which topics to try to understand the patterns the model has discovered in the data.'''
 
-def explore_topic(topic_number, topn=25, model=25):
+def explore_topic(topic_number, topn=25, model=10):
     """
     accept a user-supplied topic number and
     print out a formatted list of the top terms
@@ -204,8 +206,9 @@ topic_names_15 = {0:'0',1:'1',2: '2',3:'3',4: '4',5: '5',6: '6',7: '7',8: '8',9:
 topic_names_10 = {0:"daily do's and dont's",1:'ingredients/supplements',2: 'admin/courtesy',3:'dietary restriction /natural treatment',4:'medical problems manifestations',5: 'pathology / mechanism of action',6: 'food',7: 'experience / feeling / symptom',8: 'get rid / cure',9:'time'}
 joinp(pilot_path, 'topic_names_10.pkl')
 
-with open(joinp(pilot_path, 'topic_names_10.pkl'), 'wb') as f:
-    pickle.dump(topic_names_10, f)
+if 1==0: ## no need to save again
+    with open(joinp(pilot_path, 'topic_names_10.pkl'), 'wb') as f:
+        pickle.dump(topic_names_10, f)
     
 '''##########'''
 
@@ -225,14 +228,14 @@ explore_topic(topic_number=4, model=10)
 #sents_dictionary = Dictionary(trigram_posts)
 
 ## old: LDAvis_data_filepath = os.path.join(draft_path,'ldavis_25_prepared')
-joinp(pilot_path,'ldavis_25')
+joinp(pilot_path,'ldavis_10')
 
-if 1 == 1:
+if 1 == 0:  ## for visualization, no need to run right now
 
     LDAvis_prepared = pyLDAvis.gensim.prepare(lda, sent_bow_corpus,
                                               sents_dictionary)
 
-    with open(joinp(pilot_path,'ldavis_25'), 'wb') as f:
+    with open(joinp(pilot_path,'ldavis_10'), 'wb') as f:
         pickle.dump(LDAvis_prepared, f)
         
 ''' WHEN RUNNING THE NEXT LINES IN .ipynb, THERE WILL BE VISUALIZATION'''
@@ -298,7 +301,7 @@ def lda_description(review_text, min_topic_freq=0.05,topic_model_file='lda_model
     # remove any remaining stopwords
     trigram_review = [term for term in trigram_review
                       if not term in spacy.lang.en.STOP_WORDS]
-    print('bow:',trigram_review)
+    #print('bow:',trigram_review)
     
     # create a bag-of-words representation
     review_bow = sents_dict.doc2bow(trigram_review)
@@ -324,7 +327,7 @@ def lda_description(review_text, min_topic_freq=0.05,topic_model_file='lda_model
             break
             
         # print the most highly related topic names and frequencies
-        print('{:10} {}'.format(topic_names[topic_number],round(freq, 3))) ## for now not putting yet topic names
+        #print('{:10} {}'.format(topic_names[topic_number],round(freq, 3))) ## for now not putting yet topic names
         #print('{:25} {}'.format(topic_number,round(freq, 3))) 
         x=[topic_number,topic_names[topic_number],np.round(freq, 3)]
         listt.append(x)
@@ -386,45 +389,37 @@ y
 ## let's remeber what are these topics:
 explore_topic(topic_number=8,model=10)
     
-'''###################''''
+'''###################'''
 ''' added a helper functions to find specific words in the corpus by topic'''
 ## choosing 1000 words from a topic:
 
 def findword(word,topicnum,rangee):
     p=lda.show_topic(topicnum,rangee)
-    
+    #print('p is',p)
     ## looking for oregano_oil
     x=None
     tup=[]
+    rank=100000
+    topicnumber=[]
     for ii in range(0,rangee):
         if p[ii][0]==word:
-            tup=p[ii][:]
             x=' '.join([str(ii),'in topic',str(topicnum),topic_names_10[topicnum]])
+            #print('rank=',str(ii))
+            rank=ii
+            topicnumber.append(topicnum)
+            tup=p[ii][1]
     if x!=None:
         print(x)
-    return(tup)
+    return(topicnumber,topic_names_10[topicnum],rank,tup)
+    #return(tup,rank)
     
-findword('drink',9,500)
+findword('drink',9,5)
 explore_topic(topic_number=9,model=10)
     
 ''' to find a specific word in the corpus, print out the topic num, where is it ranked in the topic and what's its portion'''
 ## notice that the out put is/are the topics type - list
 [iii for iii in range(0,9) if findword('candida',iii,5000)!=[]]
         
-''' spaCy entity extraction for the rescue?'''
-## no, doesn't work well 
-def cleanup(token, lower = True):
-    if lower:
-       token = token.lower()
-    return token.strip()
-   
-parsed_text=nlp(sample_sent)
-labels = set([w.label_ for w in parsed_text.ents]) 
-for label in labels: 
-    entities = [cleanup(e.string, lower=False) for e in parsed_text.ents if label==e.label_] 
-    entities = list(set(entities)) 
-    print(label,entities)
-#########
 
 '''let's get the most common words:'''
 tri=pd.read_csv(joinp(pilot_path, 'sentences_for_sentiment.txt'))
@@ -437,11 +432,12 @@ all=Counter(trilist)
 ## how many times candida is in the corpus
 all['candida']
 
- '''~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~''' 
+'''~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~''' 
 '''##### algorithm to find relevant sentences/words to treatment ###### '''
- '''~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'''   
+'''~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'''   
 
 ''' strategy 1) sentence > topic of each word > how closely related to treatment:'''
+        
 sample_sent = get_sample_sent(raw_path,350) #3 sentence number 350
 print(sample_sent)
 ## equivalent processed sentence (number 334):
@@ -491,9 +487,10 @@ top3_500=explore_topic(topic_number=3, model=10,topn=500)
 top8_500=explore_topic(topic_number=8, model=10,topn=500)
 
 '''bow of only nouns:'''
-nouns=[]
-tags=[]
-if 1=0: ## this takes a long long time ~40 mins
+
+if 1==0: ## this takes a long long time ~40 mins
+    nouns=[]
+    tags=[]
     for sent in trilist: # trigram_sentences: 
         nlpsent=nlp(sent)
         for term in nlpsent:
@@ -503,54 +500,118 @@ if 1=0: ## this takes a long long time ~40 mins
         #else:
            # print('did not make it:',term,term.tag_)
 
-len(nouns) # 1,362,757  
-len(tags)         
-nouns[0:20] # long list of nouns   
-tags [0:20] # lomg list of tags (all should be nouns)
-myset=set(nouns) # get only unique
-bow_nouns=list(myset) ## finaly the bow of nouns
+if 1==0:  # this is to create bow of nouns, needed to do it (correctly!) only one time, and already did
+    len(nouns) # 1,362,757  
+    len(tags)         
+    nouns[0:20] # long list of nouns   
+    tags [0:20] # lomg list of tags (all should be nouns)
+    myset=set(nouns) # get only unique
+    bow_nouns=list(myset) ## finaly the bow of nouns
+    
+    '' 'to turn into bow (unique) and save the list to a file: '''
+    
+    df=pd.DataFrame(bow_nouns, columns=['nouns'])
+    df.head()
+    len(df)
+    ## let's turn into unique:
+    dfnew=df['nouns'].astype(str)
+    len(dfnew)
+    type(dfnew)
+    valueC=dfnew.va
+    dfuni=dfnew.unique() ## finally - 45278 unique nouns
+    len(dfuni)
+    dfff=pd.DataFrame(dfuni,columns=['nouns'])
+    dfff.head()
+    if 1==0: # no need to save this again
+        dfff.to_csv(joinp(pilot_path,'bow_nouns.csv'))
 
-'' 'to turn into bow (unique) and save the list to a file: '''
+''' word2Vec implementation '''
+## read in df of words with highest similarities to antibiotics (created in word2vec Candida_NLP_word2vec.ipynb )
+'''
+## draft for next functions
+antibW=pd.read_csv(joinp(pilot_path,'antib.csv'))
+antibW=antibW.drop(['Unnamed: 0'],1)
+antibW.head()
+'''
 
-df=pd.DataFrame(bow_nouns, columns=['nouns'])
-df.head()
-len(df)
-## let's turn into unique:
-dfnew=df['nouns'].astype(str)
-len(dfnew)
-type(dfnew)
-dfuni=dfnew.unique() ## finally - 45278 unique nouns
-len(dfuni)
-dfff=pd.DataFrame(dfuni,columns=['nouns'])
-dfff.head()
-dfff.to_csv(joinp(pilot_path,'bow_nouns.csv'))
+def word2LDA(word):
+    ranks=2000000
+    ans=[]
+    for hh in range(0,10):
+        f=findword(word,hh,5000)
+        #print('f',f)
+        if f!=[]:
+            #print('RANKS',ranks)
+            t=f
+            topicss=t[0]
+            #print('topicss',topicss)
+            topicnames=t[1]
+            prob_in_topic=t[3]
+            #print('t[2]',t[2])
+            #print(type(int(t[2])))
+            #print(type(ranks))
+            if int(t[2])<ranks:
+                ranks=t[2]
+                ans=t
+                #print('ans',ans)
+    return(ans)
+
+# word2LDA('antibiotics') ## e.g. gives a topic profile of a specific word   
+
+## create a df of an LDA profile of words with highest similarities to antibiotics 
 
 
 
-dfff[dfff['nouns']=='try']
-important
-dfff
+curedf=pd.read_csv(joinp(pilot_path,'cure.csv'))
 
-rows=df.loc[df['nouns'] == 'etc']
-rows
-type(df['nouns'][0])
-dfnew.head()[0]
-type(dfnew.head()[0])
+def LDA_to_df(col_of_words): 
+    ##e.g. col_of_words=antibW['words'] 
+    df2=pd.DataFrame(columns=['topic_num','topic_label','topic_rank','topic_score'])
+    df3=pd.DataFrame(columns=['topic_num','topic_label','topic_rank','topic_score'])
+    df2.head()
+    for ii,word in enumerate(col_of_words):
+        row=word2LDA(word)
+        df2=pd.DataFrame([row],columns=['topic_num','topic_label','topic_rank','topic_score'])
+        df3=pd.concat([df3,df2])
+    
+    dfLDA=df3
+    return (dfLDA)
 
-#compare
-explore_topic_nouns(3, topn=25, model=10)  
-explore_topic(3, topn=25, model=10)
+cureLDA=LDA_to_df(curedf['words'])
+    
+''' concatenate word2vec data and LDA data into 1 df for analysis and visualization'''
+def df2df(dfW,dfLDA):
+    #dfW=dfW.drop(['Unnamed: 0'],1)
+    dfW.reset_index(drop=True, inplace=True) ## reseting indices otherwise can't concatenate
+    dfLDA.reset_index(drop=True, inplace=True)
+    final=pd.concat([dfW,dfLDA],axis=1)
+    return (final)
 
+finaldf=df2df(curedf,cureLDA)
+finaldf.head()
+if 1==0: ## if you want to save
+    finaldf.to_csv(joinp(pilot_path,'cureWLDA.csv'))
+'''
+## this is to df2df draft 
+antibW.reset_index(drop=True, inplace=True) ## reseting indices otherwise can't concatenate
+antibLDA.reset_index(drop=True, inplace=True)
+ANTIB=pd.concat([antibW,antibLDA],axis=1)
+ANTIB.tail()
+#let's save this one:
+if 1==0: ## no need to save again
+    ANTIB.to_csv(joinp(pilot_path,'antibW2LDA.csv'))
+'''
+# we can continue to analyze and visualize on Candida_NLP_word2vec.ipynb    
 
+'''~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~''' 
+'''############### end of algorithm ##################### '''
+'''~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'''  
 
-
-
-
-'''##### end of algorithm ###### '''
 
 
 ''' ##########  sentiment analysis   #################'''
 
+'''let's put it aside for now
 # let's try this trigram transformed sentence:
 tri.iloc[230,0]
 # look for equivalent pre-processed sentence
@@ -596,6 +657,7 @@ for sent in rawpd['sentence'][300:315]:
 ''' ########### draft ##################3'''
 
 ''' filter out unwanted entities using spacy and textblob '''
+'''
 ind4=top4_500.index
 listW=list(ind)
 listW[0:5]
@@ -644,4 +706,4 @@ raw
 pro
 
 trilist[0]    
-
+'''

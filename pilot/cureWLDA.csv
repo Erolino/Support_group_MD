@@ -1,0 +1,31 @@
+,similarity with: cure,words,user_label,topic_num,topic_label,topic_rank,topic_score
+0,0.6056067943572998,infestation,un_labeled,[4],medical problems manifestations,16,0.00985128384362853
+1,0.5656987428665161,eradicate,un_labeled,[1],ingredients/supplements,281,0.0005693484275485982
+2,0.5632286667823792,heal,un_labeled,[8],get rid / cure,11,0.00978720357909241
+3,0.5626367926597595,overcome,un_labeled,[2],admin/courtesy,194,0.0007016930953690112
+4,0.5625702738761902,treat,un_labeled,[4],medical problems manifestations,14,0.00998423647861852
+5,0.5547603964805603,reverse,un_labeled,[5],pathology / mechanism of action,227,0.0009841532778697925
+6,0.5492115020751953,recover,un_labeled,[8],get rid / cure,119,0.0019876178061307855
+7,0.5064466595649719,solve,un_labeled,[6],food,159,0.0009899766770459673
+8,0.4967576861381531,restore,un_labeled,[1],ingredients/supplements,211,0.0008754847915865729
+9,0.4958118200302124,fully_recover,un_labeled,[6],food,784,0.00010540295066143588
+10,0.4865754246711731,under_control,un_labeled,[8],get rid / cure,186,0.0012121818555427626
+11,0.4780531227588654,conquer,un_labeled,[4],medical problems manifestations,429,0.0002583062185498845
+12,0.4719760119915009,beat,un_labeled,[4],medical problems manifestations,75,0.0026148959913702215
+13,0.4716614782810211,get_rid,un_labeled,[8],get rid / cure,24,0.006067344560616535
+14,0.4668340682983398,candida_albican_infestation,un_labeled,[9],time,217,0.0007103454041292662
+15,0.4664839804172516,go_away_completely,un_labeled,[5],pathology / mechanism of action,1065,0.00010115452732560812
+16,0.4639608263969421,clear_up,un_labeled,[5],pathology / mechanism of action,47,0.003955569903827063
+17,0.4601820707321167,ultimate_cure,un_labeled,[1],ingredients/supplements,1606,1.0192612171636154e-05
+18,0.4595184326171875,fully_heal,un_labeled,[4],medical problems manifestations,876,6.75713050094804e-05
+19,0.454257071018219,certainty,un_labeled,[1],ingredients/supplements,1500,1.6566475298307392e-05
+20,0.45211938023567205,treatment,un_labeled,[4],medical problems manifestations,17,0.009823290389087825
+21,0.4514378905296326,leaky_gut_syndrome,un_labeled,[6],food,178,0.0008841436033439759
+22,0.4513032138347626,fix,un_labeled,[1],ingredients/supplements,85,0.002239591006995666
+23,0.4496873617172241,contract,un_labeled,[6],food,226,0.0006232935288851728
+24,0.4460942149162293,address,un_labeled,[5],pathology / mechanism of action,78,0.0029189168977995766
+25,0.4442311525344849,resolve,un_labeled,[0],daily do's and dont's,201,0.0010970620648857543
+26,0.44405558705329895,intestinal_candidiasis,un_labeled,[4],medical problems manifestations,1189,2.5441001924995803e-05
+27,0.43824118375778204,full_blow,un_labeled,[1],ingredients/supplements,402,0.0003338548387915264
+28,0.4371229112148285,miracle_cure,un_labeled,[6],food,804,9.968800230734119e-05
+29,0.4360110461711884,convince,un_labeled,[4],medical problems manifestations,256,0.0006138667945205633
