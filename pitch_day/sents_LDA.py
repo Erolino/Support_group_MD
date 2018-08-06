@@ -425,6 +425,7 @@ explore_topic(topic_number=9,model=10)
 tri=pd.read_csv(joinp(pilot_path, 'sentences_for_sentiment.txt'))
 tri.head()
 trilist=list(tri.iloc[:,0])
+len(tri)
 
 from collections import Counter     
 Counter(trilist).most_common(5)

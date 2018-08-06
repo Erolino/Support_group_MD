@@ -77,6 +77,7 @@ y.to_csv(joinp(pilot_path,'user_names_id.txt'))
 DFF=DF[['user_id','topic_ID','ID_of_post_in_topic','post_ID','post_text']]
 DFF.to_csv(joinp(pilot_path,'merged_W_id.txt'))
 DFF.to_csv(joinp(pilot_path,'merged_W_id.csv'))
+DFF['post_text'].to_csv(joinp(pilot_path,'post_text.txt'))# just the posts
 
 # The file we can refer to for user_names (in case we scrape more data)
 print("user_names to user_id file:")

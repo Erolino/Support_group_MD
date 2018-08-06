@@ -105,10 +105,10 @@ bigram_sentences = LineSentence(joinp(pilot_path,'bigram_sentences_all.txt'))
 if 1 == 0:
 
     trigram_model = Phrases(bigram_sentences)
-    trigram_model.save(joinp(pilot_path,'trigram_model_all.txt'))
+    trigram_model.save(joinp(pilot_path,'trigram_model_all'))
     
 # load the finished model from disk
-trigram_model = Phrases.load(joinp(pilot_path,'trigram_model_all.txt'))
+trigram_model = Phrases.load(joinp(pilot_path,'trigram_model_all'))
 
 ### fitting the unigram text to the bigram "Model" (and writing it to a file)
 if 1 == 0:
@@ -130,7 +130,7 @@ spacy.lang.en.STOP_WORDS.add("-")
 
 # this takes the trigram and does final normailzation (removing stop words). 
 # the final file is sentence in every row
-if 1 == 0:
+if 1 == 1:
 
     with codecs.open(joinp(pilot_path,'trigram_trans_sentences_all.txt'), 'w', encoding='utf_8') as f:
         for trigram_sent in trigram_sentences: 
