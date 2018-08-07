@@ -45,11 +45,22 @@ Have a look at [The Candida Website](https://www.thecandidadiet.com/forums/)
 
 refer to candida_scraper.py for the webscraper code
     
+#### 2. Data processing
+    a. General processing
+![Demo](https://user-images.githubusercontent.com/24357654/43796549-8f507d94-9a52-11e8-83d2-fe9006f7d28f.png)
+Refer to pre-processing.py for the code
+
+    b. NLP text pre-processing
+
+Refer to NLP_pre-processing.py for the code
+
 ## 2. The Candida Forum Topics:
 #### a. Unsupervised clustering of corpus (with LDA topic distribution with pyLDAvis)
 
 ![Demo](https://user-images.githubusercontent.com/24357654/43748982-3f838ae6-99c0-11e8-8d1a-86b3cf7339ff.gif)
 ## Click: [LDA_interactive](https://nbviewer.jupyter.org/github/Erolino/Support_group_MD/blob/master/draft/pyLDAvis_10_topics.ipynb) to explore the different topics interactively!
+
+Refer to sent_LDA.py for the code
 
 #### b. Topics of Candida sentences - (with sent2topic()) 
 >> sent2topic(93978)
