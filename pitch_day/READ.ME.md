@@ -1,5 +1,7 @@
 ![Demo](https://github.com/Erolino/Support_group_MD/blob/master/draft/logo.png)
 
+## <p align="center">By Eran Schenker</p>
+
 # Introduction
 
 ## God forbid, 
@@ -20,7 +22,7 @@ The ultimate goal of this project is to build a data base of treatments advised 
 
 ![Demo](https://github.com/Erolino/Support_group_MD/blob/master/draft/capstoneTEST%20copy.jpg)
 # Project Outline List
-#### 1. Blog minning
+#### 1. Forum minning
     a. Webscarping - "The Candida forum", a case study
 #### 2. Data processing
     a. General processing
