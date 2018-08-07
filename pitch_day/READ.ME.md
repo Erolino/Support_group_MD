@@ -38,15 +38,15 @@ The ultimate goal of this project is to build a data base of treatments advised 
     a. Perfecting and using the "word_profile" method to extract relevant words,sentences (e.g. to "treatment")
     b. Sentiment analysis (why should we use it? + initial exploration)
 
-#### 1. Blog minning
-    a. Webscarping - "The Candida forum", a case study
+## 1. Blog minning
+#### a. Webscarping - "The Candida forum", a case study
 ![Demo](https://user-images.githubusercontent.com/24357654/43795581-cd99a934-9a4f-11e8-8546-ca7c656bc199.png)
 Have a look at [The Candida Website](https://www.thecandidadiet.com/forums/)
 
 Refer to [candida_scraper.py](https://github.com/Erolino/Support_group_MD/blob/master/pitch_day/candida_scraper.py) for the webscraper code
     
-#### 2. Data processing
-    a. General processing
+## 2. Data processing
+#### a. General processing
 ![Demo](https://user-images.githubusercontent.com/24357654/43796549-8f507d94-9a52-11e8-83d2-fe9006f7d28f.png)
 Refer to [pre-processing.py](https://github.com/Erolino/Support_group_MD/blob/master/pitch_day/pre-processing.py) for the code
 
@@ -54,7 +54,7 @@ Refer to [pre-processing.py](https://github.com/Erolino/Support_group_MD/blob/ma
 
 Refer to [NLP_pre-processing.py](https://github.com/Erolino/Support_group_MD/blob/master/pitch_day/NLP_pre-processing.py) for the code
 
-## 2. The Candida Forum Topics:
+## 3. The Candida Forum Topics:
 #### a. Unsupervised clustering of corpus (with LDA topic distribution with pyLDAvis)
 
 ![Demo](https://user-images.githubusercontent.com/24357654/43748982-3f838ae6-99c0-11e8-8d1a-86b3cf7339ff.gif)
@@ -69,7 +69,7 @@ Refer to sent_LDA.py for the code
     - [[0, "daily do's and dont's", 0.47399999999999998],
       [1, 'ingredients/supplements', 0.20499999999999999]]
 
-## 3. Semantic relations between Candida words (with word2vec):
+## 4. Semantic relations between Candida words (with word2vec):
 #### a. Dimentionality reduction and visualization (with bokeh)
 ![Demo](https://user-images.githubusercontent.com/24357654/43749052-80f39f7a-99c0-11e8-8c37-11c176351aba.gif)
 
@@ -113,8 +113,8 @@ or vice versa - explore "gut cures" while filtering out terms that are related t
 
 So essentialy, the 3 most related terms to cure this condition is to repopulate the intestine with beneficial flora (i.e. "good bacteria")
 
-#### 5. Towards minning of relevant words and then sentences (e.g. to "treatment"):
-    a. Topic and Semantic Universe of a word (with ad hoc method: word_profile(word))
+## 5. Towards minning of relevant words and then sentences (e.g. to "treatment"):
+#### a. Topic and Semantic Universe of a word (with ad hoc method: word_profile(word))
     
 Let's type any word, and get:
 
