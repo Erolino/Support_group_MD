@@ -36,6 +36,12 @@ The ultimate goal of this project is to build a data base of treatments advised 
 #### 6. Work in progress:
     a. Perfecting and using the "word_profile" method to extract relevant words,sentences (e.g. to "treatment")
     b. Sentiment analysis (why should we use it? + initial exploration)
+
+#### 1. Blog minning
+    a. Webscarping - "The Candida forum", a case study
+![Demo](https://user-images.githubusercontent.com/24357654/43795581-cd99a934-9a4f-11e8-8546-ca7c656bc199.png)
+Have a look at [The Candida Website](https://www.thecandidadiet.com/forums/)
+refer to candida_scraper.py for the webscraper code
     
 ## 2. The Candida Forum Topics:
 #### a. Unsupervised clustering of corpus (with LDA topic distribution with pyLDAvis)
@@ -99,6 +105,10 @@ So essentialy, the 3 most related terms to cure this condition is to repopulate 
     
 Let's type any word, and get:
 
+##### * Table
+##### * Bar plot
+##### * scatter plot
+
 ##### Table:
 
 'words' - 30 most related terms 
@@ -110,19 +120,20 @@ Let's type any word, and get:
 'topic_rank' - the actual rank in the topic
 
 'topic_score' - the probability to find the term in that topic (prevalence)
+
+![Demo](https://user-images.githubusercontent.com/24357654/43794790-6561ca24-9a4d-11e8-81e6-cad943a413c1.png)
+
 ##### Bar plot:
 
 A histogram of the terms count per topic ( how many in each topic)
 
 this will give a sense of how accurate the LDA model is (e.g. we will expect terms related to cure to be in the 'get rid / cure' topic and less in the 'admin / coutesy' topic)
 
+![Demo](https://user-images.githubusercontent.com/24357654/43794813-7c01e61a-9a4d-11e8-9530-583ab68a5a92.png)
+
 ##### scatter plot:
 
 How prevalent vs how related a term is to the word. the more to the right, the stronger the relationship, the higher up the more prevalent in its topic.
-
-![Demo](https://user-images.githubusercontent.com/24357654/43794790-6561ca24-9a4d-11e8-81e6-cad943a413c1.png)
-
-![Demo](https://user-images.githubusercontent.com/24357654/43794813-7c01e61a-9a4d-11e8-9530-583ab68a5a92.png)
 
 ![Demo](https://user-images.githubusercontent.com/24357654/43794840-93a01094-9a4d-11e8-9fff-93035bb6a0b1.png)
 
