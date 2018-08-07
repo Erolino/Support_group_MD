@@ -118,11 +118,13 @@ So essentialy, the 3 most related terms to cure this condition is to repopulate 
     
 Let's type any word, and get:
 
-##### * Table
-##### * Bar plot
-##### * scatter plot
+### * Table
+### * Bar plot
+### * scatter plot
 
-##### Table:
+____________________________
+### let's run type "antifungal" and run the function:
+### Table:
 
 'words' - 30 most related terms 
 
@@ -136,7 +138,7 @@ Let's type any word, and get:
 
 ![Demo](https://user-images.githubusercontent.com/24357654/43794790-6561ca24-9a4d-11e8-81e6-cad943a413c1.png)
 
-##### Bar plot:
+### Bar plot:
 
 A histogram of the terms count per topic ( how many in each topic)
 
@@ -144,7 +146,7 @@ this will give a sense of how accurate the LDA model is (e.g. we will expect ter
 
 ![Demo](https://user-images.githubusercontent.com/24357654/43794813-7c01e61a-9a4d-11e8-9530-583ab68a5a92.png)
 
-##### scatter plot:
+### scatter plot:
 
 How prevalent vs how related a term is to the word. the more to the right, the stronger the relationship, the higher up the more prevalent in its topic.
 
