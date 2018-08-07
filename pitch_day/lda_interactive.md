@@ -61,26 +61,38 @@ The ultimate goal of this project is to build a data base of treatments advised 
 By typing the word "doctor", we can see the types of doctors users are talking about:
 
 >> get_related_terms(u'doctor',12)
->> out - similarity with: doctor
->> specialist	0.746734
->> naturopath	0.726649
->> allergist	0.718856
+
+>> out - similarity with: "doctor"
+
+>> "specialist"	0.746734
+
+>> "naturopath"	0.726649
+
+>> "allergist"	0.718856
 
 #### c. Word algebra with specific word combinations (with word_algebra(add=['__','__'],subtract=['__'],topn='__')
 
 with word algebra we can explore gut symptoms and "exclude" terms that are related to cure
 
 >> gut + symptom - cure:
->> gas_bloating
->> gas
->> digestive_tract
+
+>> "gas_bloating"
+
+>> "gas"
+
+>> "digestive_tract"
 
 or vice versa - explore "gut cures" while filtering out terms that are related to symptoms:
 
 >> gut + cure - symptom:
->> repopulate
->> intestine
->> beneficial_flora
+
+>> "repopulate"
+
+>> "intestine"
+
+>> "beneficial_flora"
+
+So essentialy, the 3 most related terms to cure this condition is to repopulate the intestine with beneficial flora (i.e. "good bacteria")
 
 #### 5. Towards minning of relevant words and then sentences (e.g. to "treatment"):
     a. Topic and Semantic Universe of a word (with ad hoc method: word_profile(word))
@@ -108,11 +120,11 @@ this will give a sense of how accurate the LDA model is (e.g. we will expect ter
 
 How prevalent vs how related a term is to the word. the more to the right, the stronger the relationship, the higher up the more prevalent in its topic.
 
-![Demo]()
+![Demo](https://user-images.githubusercontent.com/24357654/43794790-6561ca24-9a4d-11e8-81e6-cad943a413c1.png)
 
-![Demo]()
+![Demo](https://user-images.githubusercontent.com/24357654/43794813-7c01e61a-9a4d-11e8-9530-583ab68a5a92.png)
 
-![Demo]()
+![Demo](https://user-images.githubusercontent.com/24357654/43794840-93a01094-9a4d-11e8-9fff-93035bb6a0b1.png)
 
 ## 6. Work in progress:
 #### a. Perfecting and using the "word_profile" method to extract relevant words,sentences (e.g. to "treatment")
@@ -130,7 +142,7 @@ word profile could be used as folllows:
 #### b. Sentiment analysis of sentences (why should we use it? + initial exploration)
 scheme of plan:
 
-![Demo]()
+![Demo](https://user-images.githubusercontent.com/24357654/43794724-2e0407c2-9a4d-11e8-84d0-243406e62daa.png)
 
 #### Initial exploration conclusions:
 ##### simple sentiment analysis using a'TextBlob' package showed poor results: 
