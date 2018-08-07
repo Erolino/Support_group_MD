@@ -1,3 +1,7 @@
+![Demo](https://github.com/Erolino/Support_group_MD/blob/master/draft/logo.png)
+
+![Demo](https://github.com/Erolino/Support_group_MD/blob/master/draft/capstoneTEST%20copy.jpg)
+
 
 ![Demo](https://user-images.githubusercontent.com/24357654/43748982-3f838ae6-99c0-11e8-8d1a-86b3cf7339ff.gif)
 ## Click: [LDA_interactive](https://nbviewer.jupyter.org/github/Erolino/Support_group_MD/blob/master/draft/pyLDAvis_10_topics.ipynb) to explore the different topics interactively!
