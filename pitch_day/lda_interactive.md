@@ -1,4 +1,5 @@
 ![Demo](https://github.com/Erolino/Support_group_MD/blob/master/draft/logo.png)
+
 # Introduction
 
 ## God forbid, 
@@ -41,6 +42,7 @@ The ultimate goal of this project is to build a data base of treatments advised 
     a. Webscarping - "The Candida forum", a case study
 ![Demo](https://user-images.githubusercontent.com/24357654/43795581-cd99a934-9a4f-11e8-8546-ca7c656bc199.png)
 Have a look at [The Candida Website](https://www.thecandidadiet.com/forums/)
+
 refer to candida_scraper.py for the webscraper code
     
 ## 2. The Candida Forum Topics:
