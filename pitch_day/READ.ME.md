@@ -123,7 +123,7 @@ Let's type any word, and get:
 ### * scatter plot
 
 ____________________________
-### let's run type "antifungal" and run the function:
+### let's type "antifungal" and run the function:
 ### Table:
 
 'words' - 30 most related terms 
