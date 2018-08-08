@@ -8,7 +8,7 @@
 ##### you have a chronic health condition. 
 Like everyone else the 1st place you go to, even before the doctor, is sometimes google, and from there on the route is very short to sinking deep into health forums and be overwhelmed in a sea of opinions. Is there a better way to make sense of all of this information?
 
-"Support Group MD", is a project that takes a big step towards the goal of giving you health advice from the cumulative knowledge and experience of thousands of users who are fighting the same health battle. 
+"Support Groups MD", is a project that takes a big step towards the goal of giving you health advice from the cumulative knowledge and experience of thousands of users who are fighting the same health battle. 
 
 The pilot for "Support Group MD" is based on health forums that deal with a specific condition called: “Candida overgrowth”
 ##### “Candida overgrowth”, 
@@ -177,22 +177,22 @@ scheme of plan:
 1. accuracy was low e.g.: "Honey might be another option, as it’s anti-bacterial, but since we’re dealing with a yeast that’s gone wildly out of control, I would think it might be best to avoid even honey at this point. 
  The score for the sentence was positive in a high range (0.55). 
 
-2. The model seems biased towards specific words without considering its content e.g. "Are anti-fungals effective at eliminating candida in the prostate? 0.6" seems biased towards effective. 
+2. The model seems biased towards specific words without considering its content e.g. "Are anti-fungals effective at eliminating candida in the prostate? 0.6" seems biased towards "effective". 
 
-3. sentiment analysis might not be the answer to detect useful treatments as advice although could have lower level of sentiment involved.
+3. sentiment analysis might not be the answer to detect useful treatments, as advice-sentences might have lower "levels of sentiment" involved .
 
-##### futher attempts at sentiment analysis must be done with the most fitting models out there:
+##### futher attempts at sentiment analysis must be done with models that fitt the following requirements:
 
 - of sentences and not paragraphs
 
-- of forums which are a dialogue in nature and not a monologue (e.g. reviews)
+- of forums which are dialogues in nature and not monologues (e.g. reviews)
 
 - of health related.
 
-- neural network on much larger data sets would have the highest potential in showing good results
+- Neural network model on much larger data sets would have the highest potential in showing good accuracy
 
 ## Conclusion
 NLP models such as LDA and word2vec could be combined to produce powerful understanding of a dialogue based text such as discussion forums about a specific topic dealing with health problems.
 
-word_profile() could be used to "mine" specific terms and give a sense of how important they are in the corpus (their prevalence,topic distribution and the universe of terms they are related to).
-by applying word_profile() to symptoms for instance, we could get a sense of the health condition of the users. if I am a user and I type bladder_pain i can see other symptoms that are related (urinary tract and std problems, but also surprisingly prevalent symptom like brain fog. and by typing 'doctor' we can see how people seek naturopath / alternative medicine amongst other specialists in endocrinology, gastrointestinal, dermatologyst and gynecologist. 
+"word_profile()" could be used to "mine" specific terms and give a sense of how important they are in the corpus (their prevalence,topic distribution and the universe of terms they are related to).
+by applying word_profile() to symptoms for instance, we could get a sense of the health condition of the users. if I am a user and I type "bladder_pain" I can see other symptoms that are mentioned together with it like: urinary tract and std problems, but also a surprisingly prevalent symptom like "brain fog". And by typing "doctor" we can see how people discuss naturopath / alternative medicine doctors 5 times more than Gastro-doctors for a primarily gastro-intestinal condition.
